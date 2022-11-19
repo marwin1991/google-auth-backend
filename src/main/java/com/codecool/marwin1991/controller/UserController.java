@@ -19,7 +19,7 @@ public class UserController {
     private final UserRepository userRepository;
 
     @GetMapping("/profile")
-    //TODO sprawdzić czy ma role user korzystajać z @PreAuthorize
+    @PreAuthorize("hasRole('USER')") // sprawdza czy ma role user korzystajać z @PreAuthorize
     public AppUser getCurrentUser(@CurrentUser UserPrincipal userPrincipal){
         // UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return userRepository.findById(userPrincipal.getId())
