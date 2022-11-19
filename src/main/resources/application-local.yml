@@ -5,6 +5,7 @@ spring:
     username: postgres
     password: masterkey
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create-drop
     show-sql: true
